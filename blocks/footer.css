@@ -1,0 +1,14 @@
+.footer {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 67px;
+  padding-bottom: 60px;
+}
+
+.footer__text {
+  margin: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+  color: #545454;
+}

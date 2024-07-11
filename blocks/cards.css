@@ -57,3 +57,15 @@
 .card-like__button:hover {
   background: transparent url(../images/heart-button_hover.svg);
 }
+
+@media screen and (min-width: 481px) and (max-width: 880px) {
+  .card__list {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card__list {
+    width: 100%;
+  }
+}

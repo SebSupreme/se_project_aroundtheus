@@ -12,3 +12,23 @@
   line-height: 21.78px;
   color: #545454;
 }
+
+@media screen and (min-width: 481px) and (max-width: 880px) {
+  .footer {
+    padding: 4%;
+    padding: 4%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    margin: 0;
+    padding: 48px 19px 36px;
+  }
+
+  .footer__text {
+    font-size: 14px;
+    line-height: 16.94px;
+    max-width: 282px;
+  }
+}

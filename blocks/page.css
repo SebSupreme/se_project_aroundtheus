@@ -2,6 +2,8 @@
   background-color: black;
   color: white;
   font-family: inter, Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .page__section {

@@ -1,5 +1,6 @@
 @media screen and (min-width: 481px) and (max-width: 880px) {
   .header {
+    width: 100%;
     padding-right: 4%;
     padding-left: 4%;
   }
@@ -31,6 +32,10 @@
     width: 85%;
   }
 
+  .card__list {
+    width: 100%;
+  }
+
   .footer {
     padding: 4%;
     padding: 4%;
@@ -38,6 +43,11 @@
 }
 
 @media screen and (max-width: 480px) {
+  .page {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   .header {
     margin-top: 28px;
     padding-left: 27px;
@@ -85,6 +95,10 @@
 
   .profile__image {
     margin: 0;
+  }
+
+  .card__list {
+    width: 100%;
   }
 
   .footer {

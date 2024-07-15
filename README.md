@@ -1,25 +1,8 @@
-# Project 3: Around The U.S.
+Project 3: Around The U.S.
 
-### Overview
+Description
+This project shows a profile and images of and explorer in his travels. The functionality is to be able to like the images and edit the profile with the buttons. In this project, we utilized a grid display for the cards and their images, ensuring a responsive design that adapts to a wide variety of devices like mobile phones, tablets, and computers.
 
-- Intro
-- Figma
-- Images
-
-**Intro**
-
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
-
-**Figma**
-
-- [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
-
-**Images**
-
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
-
-Good luck and have fun!
-
-Looking for Feedback on the code before doing the video and finishing the readme.
+This the link to the video on the project https://drive.google.com/file/d/1nGxH3a5ao0kFknMl7C3zyPq3LcKqAzdk/view?usp=sharing
 
 This is the link to the project on github pages https://sebsupreme.github.io/se_project_aroundtheus/

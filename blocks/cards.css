@@ -2,70 +2,11 @@
   margin-top: 30px;
 }
 
-.card__list {
+.cards__list {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);
   grid-gap: 20px 17px;
   padding: 0;
   margin: 0;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  border-radius: 10px;
-}
-
-.card__image {
-  height: 282px;
-  width: 282px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.card__description {
-  display: flex;
-  background-color: white;
-  color: black;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  padding-left: 20px;
-  padding-right: 20px;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.card__text {
-  margin: 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.card-like__button {
-  background: transparent url(../images/heart-button-inactive.svg) center
-    no-repeat;
-  width: 21px;
-  height: 18px;
-  border-color: transparent;
-}
-
-.card-like__button:hover {
-  background: transparent url(../images/heart-button_hover.svg);
-}
-
-@media screen and (min-width: 481px) and (max-width: 880px) {
-  .card__list {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .card__list {
-    width: 100%;
-  }
 }

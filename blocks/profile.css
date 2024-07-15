@@ -9,7 +9,7 @@
   grid-template-areas:
     "title button"
     "description description";
-  grid-template-columns: minmax(auto, 373px) auto;
+  grid-template-columns: minmax(auto, 375px) auto;
   align-items: center;
   column-gap: 18px;
   row-gap: 7px;
@@ -21,7 +21,8 @@
   height: 24px;
   width: 24px;
   grid-area: button;
-  border-color: white;
+  border: 1px solid #ffffff;
+  cursor: pointer;
 }
 
 .profile__edit-button:hover {
@@ -34,7 +35,8 @@
   width: 150px;
   margin-left: auto;
   border-radius: 2px;
-  border-color: white;
+  border: 2px solid #ffffff;
+  cursor: pointer;
 }
 
 .profile__add-button:hover {
@@ -47,8 +49,10 @@
   font-weight: 500;
   grid-area: title;
   margin: 0;
-  max-height: 48px;
-  letter-spacing: -0.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: ;
 }
 
 .profile__description {
@@ -123,6 +127,8 @@
 
   .profile__description {
     text-align: center;
+    font-size: 14px;
+    line-height: 16.94px;
   }
 
   .profile__add-button {

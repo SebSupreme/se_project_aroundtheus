@@ -25,4 +25,4 @@ const initialCards = [
   },
 ];
 
-console.log(intialCards);
+console.log(initialCards);

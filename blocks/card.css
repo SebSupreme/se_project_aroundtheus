@@ -33,7 +33,7 @@
   overflow: hidden;
 }
 
-.card_like__button {
+.card__like-button {
   background: transparent url(../images/heart-button-inactive.svg) center
     no-repeat;
   width: 21px;
@@ -42,6 +42,6 @@
   cursor: pointer;
 }
 
-.card_like__button:hover {
+.card__like-button:hover {
   opacity: 50%;
 }

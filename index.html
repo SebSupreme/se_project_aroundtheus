@@ -34,74 +34,7 @@
           <button type="button" class="profile__add-button"></button>
         </section>
         <section class="cards page__section">
-          <ul class="cards__list">
-            <li class="card">
-              <img
-                src="./images/yosemite.jpg"
-                alt="card image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__text">Yosemite Valley</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/lake-louise.jpg"
-                alt="card image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__text">Lake Louise</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/bald-mountains.jpg"
-                alt="card image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__text">Bald Mountain</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/latemar.jpg"
-                alt="card image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__text">Latemar</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/vanoise.jpg"
-                alt="card image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__text">Vanoise National..</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/lago.jpg"
-                alt="card image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__text">Lago di Braies</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-          </ul>
+          <ul class="cards__list"></ul>
         </section>
       </main>
       <footer class="footer page__section">
@@ -132,6 +65,15 @@
         </form>
       </div>
     </div>
+    <template id="card-template">
+      <li class="card">
+        <img src="" alt="" class="card__image" />
+        <div class="card__description">
+          <h2 class="card__text"></h2>
+          <button type="button" class="card__like-button"></button>
+        </div>
+      </li>
+    </template>
 
     <script src="./scripts/index.js"></script>
   </body>

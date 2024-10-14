@@ -34,12 +34,15 @@ const profileNameInput = document.querySelector("#profile-name-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
+const addCardTitleInput = document.querySelector("#add-card-title-input");
+const addCardUrlInput = document.querySelector("#add-card-url-input");
 
 // Wrappers
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
 const cardListEl = document.querySelector(".cards__list");
-const profileEditForm = profileEditModal.querySelector(".modal__form");
+const profileEditForm = profileEditModal.querySelector("#edit-profile-form");
+const addCardForm = addCardModal.querySelector("#add-card-form");
 
 // Buttons and Dom Nodes
 const profileEditBtn = document.querySelector(".profile__edit-button");
@@ -78,12 +81,25 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
+function renderCard(cardData, Wrappers) {
+  const cardElement = getCardElement(cardData);
+  Wrappers.prepend(cardElement);
+}
+
 // Event Handlers
 function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(profileEditModal);
+}
+
+function handleAddCardFormSubmit(e) {
+  e.preventDefault();
+  const name = addCardTitleInput.value;
+  const link = addCardUrlInput.value;
+  renderCard({ name, link }, cardListEl);
+  closePopup(addCardModal);
 }
 
 // Event Listerners
@@ -97,8 +113,6 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 // add new card
 addNewCardBtn.addEventListener("click", () => openPopup(addCardModal));
 addCardModalCloseBtn.addEventListener("click", () => closePopup(addCardModal));
+addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
-initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardListEl.append(cardElement);
-});
+initialCards.forEach((cardData) => renderCard(cardData, cardListEl));

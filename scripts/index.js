@@ -43,6 +43,7 @@ const addCardModal = document.querySelector("#add-card-modal");
 const cardListEl = document.querySelector(".cards__list");
 const profileEditForm = profileEditModal.querySelector("#edit-profile-form");
 const addCardForm = addCardModal.querySelector("#add-card-form");
+const previewImageModal = document.querySelector("#preview-image-modal");
 
 // Buttons and Dom Nodes
 const profileEditBtn = document.querySelector(".profile__edit-button");
@@ -55,6 +56,9 @@ const addCardModalCloseBtn = document.querySelector(
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const addNewCardBtn = document.querySelector(".profile__add-button");
+const previewImageModalCloseButton = document.querySelector(
+  "#preview-image-modal-button-close"
+);
 
 // Functions
 function closePopup(modal) {
@@ -66,18 +70,36 @@ function openPopup(modal) {
 }
 
 function getCardElement(cardData) {
-  // clone the template element with all its content and store it in a cardElement
   const cardElement = cardTemplate.cloneNode(true);
-  // access the card title and image and store them in variables
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTextEl = cardElement.querySelector(".card__text");
-  // set the path to the image to the link field of the object
+  const likeBtn = cardElement.querySelector(".card__like-button");
+  const deleteBtn = cardElement.querySelector(".card__delete-button");
+
+  cardImageEl.addEventListener("click", () => {
+    const modalCaption = previewImageModal.querySelector(".modal__caption");
+    const modalImage = previewImageModal.querySelector(".modal__image");
+
+    modalImage.alt = cardData.name;
+    modalCaption.textContent = cardData.name;
+    modalImage.src = cardData.link;
+    openPopup(previewImageModal);
+  });
+  previewImageModalCloseButton.addEventListener("click", () =>
+    closePopup(previewImageModal)
+  );
+
+  deleteBtn.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
+  likeBtn.addEventListener("click", () => {
+    likeBtn.classList.toggle("card__like-button_active");
+  });
+
   cardImageEl.src = cardData.link;
-  // set the image alt text to the name field of the object
   cardImageEl.alt = cardData.name;
-  // set the card text to the name field of the object, too
   cardTextEl.textContent = cardData.name;
-  // return the ready HTML element with the filled-in data
   return cardElement;
 }
 

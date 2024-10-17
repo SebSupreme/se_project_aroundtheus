@@ -41,6 +41,17 @@
         <p class="footer__text">&#169; 2024 Around The U.S.</p>
       </footer>
     </div>
+    <!-- preview image modal -->
+    <div class="modal modal_preview" id="preview-image-modal">
+      <div class="modal__container modal__container_preview">
+        <button
+          class="modal__close modal__close_preview"
+          id="preview-image-modal-button-close"
+        ></button>
+        <img class="modal__image" alt="Preview Image" />
+        <p class="modal__caption"></p>
+      </div>
+    </div>
     <!-- edit modal -->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
@@ -95,6 +106,7 @@
     <template id="card-template">
       <li class="card">
         <img src="" alt="" class="card__image" />
+        <button type="button" class="card__delete-button"></button>
         <div class="card__description">
           <h2 class="card__text"></h2>
           <button type="button" class="card__like-button"></button>

@@ -59,6 +59,8 @@ const addNewCardBtn = document.querySelector(".profile__add-button");
 const previewImageModalCloseButton = document.querySelector(
   "#preview-image-modal-button-close"
 );
+const modalCaption = previewImageModal.querySelector(".modal__caption");
+const modalImage = previewImageModal.querySelector(".modal__image");
 
 // Functions
 function closePopup(modal) {
@@ -77,9 +79,6 @@ function getCardElement(cardData) {
   const deleteBtn = cardElement.querySelector(".card__delete-button");
 
   cardImageEl.addEventListener("click", () => {
-    const modalCaption = previewImageModal.querySelector(".modal__caption");
-    const modalImage = previewImageModal.querySelector(".modal__image");
-
     modalImage.alt = cardData.name;
     modalCaption.textContent = cardData.name;
     modalImage.src = cardData.link;
@@ -103,9 +102,9 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-function renderCard(cardData, Wrappers) {
+function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
-  Wrappers.prepend(cardElement);
+  wrapper.prepend(cardElement);
 }
 
 // Event Handlers
@@ -121,6 +120,10 @@ function handleAddCardFormSubmit(e) {
   const name = addCardTitleInput.value;
   const link = addCardUrlInput.value;
   renderCard({ name, link }, cardListEl);
+
+  addCardTitleInput.value = "";
+  addCardUrlInput.value = "";
+
   closePopup(addCardModal);
 }
 

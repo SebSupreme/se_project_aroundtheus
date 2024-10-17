@@ -149,6 +149,11 @@
     top: -28px;
   }
 
+  .modal__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
   .modal__heading {
     margin-bottom: 75px;
   }

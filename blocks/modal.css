@@ -90,7 +90,12 @@
 .modal__form {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
+}
+
+.modal__input-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .modal__input {
@@ -100,6 +105,11 @@
   color: #000;
   border: 1px;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  margin-bottom: 5px;
+}
+
+.modal__input_type_error {
+  border-bottom: 1px solid #ff0000;
 }
 
 .modal__button {
@@ -119,8 +129,24 @@
   opacity: 0.8;
 }
 
+.modal__button:disabled,
+.modal__button.modal__button_disabled {
+  opacity: 20%;
+  cursor: not-allowed;
+}
+
 .modal__caption {
   color: #fff;
+}
+
+.modal__error {
+  color: #ff0000;
+  font-size: 12px;
+  display: none;
+}
+
+.modal__error_visible {
+  display: block;
 }
 
 @media screen and (max-width: 480px) {

@@ -52,7 +52,7 @@
         <p class="modal__caption"></p>
       </div>
     </div>
-    <!-- edit modal -->
+    <!-- profile edit modal -->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button
@@ -60,33 +60,39 @@
           id="edit-profile-modal-close-button"
         ></button>
         <p class="modal__title">Edit Profile</p>
-        <form class="modal__form" id="edit-profile-form">
-          <input
-            class="modal__input"
-            id="profile-name-input"
-            type="text"
-            name="Name"
-            placeholder="Name"
-            maxlength="40"
-            minlength="2"
-            required
-          />
-          <span class="modal__error" id="profile-name-input-error"></span>
-          <input
-            class="modal__input"
-            type="text"
-            name="description"
-            id="profile-description-input"
-            placeholder="Description"
-            maxlength="200"
-            minlength="2"
-            required
-          />
-          <span
-            class="modal__error"
-            id="profile-description-input-error"
-          ></span>
-          <button class="modal__button">Save</button>
+        <form class="modal__form" id="edit-profile-form" novalidate>
+          <div class="modal__input-container">
+            <input
+              class="modal__input"
+              id="profile-name-input"
+              type="text"
+              name="Name"
+              placeholder="Name"
+              maxlength="40"
+              minlength="2"
+              required
+            />
+            <span class="modal__error" id="profile-name-input-error"></span>
+          </div>
+          <div class="modal__input-container">
+            <input
+              class="modal__input"
+              type="text"
+              name="description"
+              id="profile-description-input"
+              placeholder="Description"
+              maxlength="200"
+              minlength="2"
+              required
+            />
+            <span
+              class="modal__error"
+              id="profile-description-input-error"
+            ></span>
+          </div>
+          <button class="modal__button modal__button_disabled" disabled>
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -95,26 +101,38 @@
       <div class="modal__container">
         <button class="modal__close" id="add-card-modal-close-button"></button>
         <p class="modal__title">New Place</p>
-        <form class="modal__form" id="add-card-form">
-          <input
-            class="modal__input"
-            id="add-card-title-input"
-            type="text"
-            name="title"
-            placeholder="Title"
-            maxlength="40"
-            minlength="2"
-            required
-          />
-          <input
-            class="modal__input"
-            type="text"
-            name="Url"
-            id="add-card-url-input"
-            placeholder="Image URL"
-            required
-          />
-          <button class="modal__button">Save</button>
+        <form class="modal__form" id="add-card-form" novalidate>
+          <div class="modal__input-container">
+            <input
+              class="modal__input"
+              id="add-card-title-input"
+              type="text"
+              name="title"
+              placeholder="Title"
+              maxlength="30"
+              minlength="1"
+              required
+            />
+            <span class="modal__error" id="add-card-title-input-error"></span>
+          </div>
+          <div class="modal__input-container">
+            <input
+              class="modal__input"
+              type="url"
+              name="Url"
+              id="add-card-url-input"
+              placeholder="Image URL"
+              required
+            />
+            <span class="modal__error" id="add-card-url-input-error"></span>
+          </div>
+          <button
+            class="modal__button modal__button_disabled"
+            type="submit"
+            disabled
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>

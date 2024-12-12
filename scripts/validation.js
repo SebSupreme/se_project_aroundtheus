@@ -6,6 +6,12 @@ function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.textContent = inputEl.validationMessage;
   errorMessageEl.classList.add(errorClass);
+
+  if (errorMessageEl.textContent.length > 50) {
+    errorMessageEl.style.bottom = "-35px";
+  } else {
+    errorMessageEl.style.bottom = "-20px";
+  }
 }
 
 function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
@@ -41,12 +47,12 @@ function toggleBtnState(inputElms, submitBtn, { inactiveButtonClass }) {
 }
 
 function setEventListeners(formEl, options) {
-  const { inputSelector } = options;
+  const { inputSelector, submitButtonSelector } = options;
   const inputElms = [...formEl.querySelectorAll(inputSelector)];
-  const submitBtn = formEl.querySelector(".modal__button");
+  const submitBtn = formEl.querySelector(submitButtonSelector);
 
   inputElms.forEach((inputEl) => {
-    inputEl.addEventListener("input", (e) => {
+    inputEl.addEventListener("input", () => {
       checkInputValidity(formEl, inputEl, options);
       toggleBtnState(inputElms, submitBtn, options);
     });

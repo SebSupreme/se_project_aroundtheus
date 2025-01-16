@@ -1,13 +1,9 @@
 export default class Card {
-  constructor({ name, link }, cardSelector, openModalFunction) {
+  constructor({ name, link, handleImageClick }, cardSelector) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
-    this._openModal = openModalFunction;
-  }
-
-  setOpenModal(openModalFunction) {
-    this._openModal = openModalFunction;
+    this._handleImageClick = handleImageClick;
   }
 
   _setEventListeners() {
@@ -24,7 +20,7 @@ export default class Card {
       });
 
     this._imageElement.addEventListener("click", () => {
-      this._handleCardClick();
+      this._handleImageClick(this._name, this._link);
     });
   }
 
@@ -37,18 +33,6 @@ export default class Card {
     this._cardElement
       .querySelector(".card__like-button")
       .classList.toggle("card__like-button_active");
-  }
-
-  _handleCardClick() {
-    const modalImage = document.querySelector(".modal__image");
-    const modalCaption = document.querySelector(".modal__caption");
-    const previewImageModal = document.querySelector("#preview-image-modal");
-
-    modalImage.src = this._link;
-    modalImage.alt = this._name;
-    modalCaption.textContent = this._name;
-
-    this._openModal(previewImageModal);
   }
 
   getView() {

@@ -11,15 +11,6 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
-const editForm = document.querySelector("#edit-profile-form");
-const addForm = document.querySelector("#add-card-form");
-
-const editFormValidator = new FormValidator(settings, editForm);
-const addFormValidator = new FormValidator(settings, addForm);
-
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();
-
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -80,7 +71,31 @@ const previewImageModalCloseButton = document.querySelector(
   "#preview-image-modal-button-close"
 );
 
+const editFormValidator = new FormValidator(settings, profileEditForm);
+const addFormValidator = new FormValidator(settings, addCardForm);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+
 // Functions
+function createCard(item) {
+  const card = new Card({ ...item, handleImageClick }, cardTemplateSelector);
+  const cardElement = card.getView();
+  return cardElement;
+}
+
+function handleImageClick(name, link) {
+  const modalImage = document.querySelector(".modal__image");
+  const modalCaption = document.querySelector(".modal__caption");
+  const previewImageModal = document.querySelector("#preview-image-modal");
+
+  modalImage.src = link;
+  modalImage.alt = name;
+  modalCaption.textContent = name;
+
+  openModal(previewImageModal);
+}
+
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
 
@@ -160,8 +175,6 @@ addCardModalCloseBtn.addEventListener("click", () => closeModal(addCardModal));
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 initialCards.forEach((cardData) => {
-  const card = new Card(cardData, cardTemplateSelector);
-  card.setOpenModal(openModal);
-  const cardElement = card.getView();
+  const cardElement = createCard(cardData);
   cardListEl.prepend(cardElement);
 });

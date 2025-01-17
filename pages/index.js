@@ -148,6 +148,7 @@ function handleAddCardFormSubmit(e) {
 
   addCardForm.reset();
   addFormValidator.resetValidation();
+  addFormValidator.disableButton();
   closeModal(addCardModal);
 }
 
@@ -167,7 +168,6 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 // add new card
 addNewCardBtn.addEventListener("click", () => {
-  addFormValidator.resetValidation();
   openModal(addCardModal);
 });
 addCardModalCloseBtn.addEventListener("click", () => closeModal(addCardModal));

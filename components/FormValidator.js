@@ -52,6 +52,11 @@ export default class FormValidator {
     }
   }
 
+  disableButton() {
+    this._submitBtn.classList.add(this._inactiveButtonClass);
+    this._submitBtn.disabled = true;
+  }
+
   _setEventListeners() {
     this._inputElms.forEach((inputEl) => {
       inputEl.addEventListener("input", () => {

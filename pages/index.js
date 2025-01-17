@@ -78,29 +78,14 @@ editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
 // Functions
-function toggleSubmitButton() {
-  const addCardSubmitButton = addCardForm.querySelector(".modal__button");
-  if (addCardTitleInput.value && addCardUrlInput.value) {
-    // Enable the button
-    addCardSubmitButton.removeAttribute("disabled");
-    addCardSubmitButton.classList.remove("modal__button_disabled");
-  } else {
-    // Disable the button
-    addCardSubmitButton.setAttribute("disabled", "true");
-    addCardSubmitButton.classList.add("modal__button_disabled");
-  }
-}
-
-function createCard(item) {
-  const card = new Card({ ...item, handleImageClick }, cardTemplateSelector);
-  const cardElement = card.getView();
-  return cardElement;
+function createCard(data) {
+  const card = new Card({ ...data, handleImageClick }, "#card-template");
+  return card.getView();
 }
 
 function handleImageClick(name, link) {
-  const modalImage = document.querySelector(".modal__image");
-  const modalCaption = document.querySelector(".modal__caption");
-  const previewImageModal = document.querySelector("#preview-image-modal");
+  const modalImage = previewImageModal.querySelector(".modal__image");
+  const modalCaption = previewImageModal.querySelector(".modal__caption");
 
   modalImage.src = link;
   modalImage.alt = name;
@@ -158,15 +143,11 @@ function handleAddCardFormSubmit(e) {
   const name = addCardTitleInput.value;
   const link = addCardUrlInput.value;
 
-  const card = new Card({ name, link, handleImageClick }, cardTemplateSelector);
-  const cardElement = card.getView();
+  const cardElement = createCard({ name, link });
   cardListEl.prepend(cardElement);
 
-  addCardTitleInput.value = "";
-  addCardUrlInput.value = "";
-
-  toggleSubmitButton();
-
+  addCardForm.reset();
+  addFormValidator.resetValidation();
   closeModal(addCardModal);
 }
 
@@ -185,7 +166,10 @@ profileCloseBtn.addEventListener("click", () => closeModal(profileEditModal));
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 // add new card
-addNewCardBtn.addEventListener("click", () => openModal(addCardModal));
+addNewCardBtn.addEventListener("click", () => {
+  addFormValidator.resetValidation();
+  openModal(addCardModal);
+});
 addCardModalCloseBtn.addEventListener("click", () => closeModal(addCardModal));
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 

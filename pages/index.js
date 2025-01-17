@@ -78,6 +78,19 @@ editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
 // Functions
+function toggleSubmitButton() {
+  const addCardSubmitButton = addCardForm.querySelector(".modal__button"); // Submit button inside the add card form
+  if (addCardTitleInput.value && addCardUrlInput.value) {
+    // Enable the button
+    addCardSubmitButton.removeAttribute("disabled");
+    addCardSubmitButton.classList.remove("modal__button_disabled"); // remove disabled styles
+  } else {
+    // Disable the button
+    addCardSubmitButton.setAttribute("disabled", "true");
+    addCardSubmitButton.classList.add("modal__button_disabled"); // add disabled styles
+  }
+}
+
 function createCard(item) {
   const card = new Card({ ...item, handleImageClick }, cardTemplateSelector);
   const cardElement = card.getView();
@@ -145,12 +158,14 @@ function handleAddCardFormSubmit(e) {
   const name = addCardTitleInput.value;
   const link = addCardUrlInput.value;
 
-  const card = new Card({ name, link }, cardTemplateSelector, openModal);
+  const card = new Card({ name, link, handleImageClick }, cardTemplateSelector);
   const cardElement = card.getView();
   cardListEl.prepend(cardElement);
 
   addCardTitleInput.value = "";
   addCardUrlInput.value = "";
+
+  toggleSubmitButton();
 
   closeModal(addCardModal);
 }

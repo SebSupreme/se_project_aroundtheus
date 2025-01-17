@@ -79,15 +79,15 @@ addFormValidator.enableValidation();
 
 // Functions
 function toggleSubmitButton() {
-  const addCardSubmitButton = addCardForm.querySelector(".modal__button"); // Submit button inside the add card form
+  const addCardSubmitButton = addCardForm.querySelector(".modal__button");
   if (addCardTitleInput.value && addCardUrlInput.value) {
     // Enable the button
     addCardSubmitButton.removeAttribute("disabled");
-    addCardSubmitButton.classList.remove("modal__button_disabled"); // remove disabled styles
+    addCardSubmitButton.classList.remove("modal__button_disabled");
   } else {
     // Disable the button
     addCardSubmitButton.setAttribute("disabled", "true");
-    addCardSubmitButton.classList.add("modal__button_disabled"); // add disabled styles
+    addCardSubmitButton.classList.add("modal__button_disabled");
   }
 }
 

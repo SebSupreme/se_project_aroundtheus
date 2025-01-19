@@ -147,8 +147,8 @@ function handleAddCardFormSubmit(e) {
   cardListEl.prepend(cardElement);
 
   addCardForm.reset();
-  addFormValidator.resetValidation();
   addFormValidator.disableButton();
+
   closeModal(addCardModal);
 }
 
